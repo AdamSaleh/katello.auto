@@ -35,7 +35,7 @@ namespace.
     <div class="NamespaceTOC">
       <span class="toc-header">Namespaces</span>
       <ul id="left-sidebar-list">
-        <li><a href="katello.api-tasks-api.html" class="wiki_link">katello.api-tasks</a></li><li><a href="katello.client-api.html" class="wiki_link">katello.client</a></li><li><a href="katello.conf-api.html" class="wiki_link">katello.conf</a></li><li><a href="katello.locators-api.html" class="wiki_link">katello.locators</a></li><li><a href="katello.rest-api.html" class="wiki_link">katello.rest</a></li><li><a href="katello.setup-api.html" class="wiki_link">katello.setup</a></li><li><a href="katello.tasks-api.html" class="wiki_link">katello.tasks</a></li><li><a href="katello.tests.e2e-api.html" class="wiki_link">katello.tests.e2e</a></li><li><a href="katello.tests.environments-api.html" class="wiki_link">katello.tests.environments</a></li><li><a href="katello.tests.login-api.html" class="wiki_link">katello.tests.login</a></li><li><a href="katello.tests.navigation-api.html" class="wiki_link">katello.tests.navigation</a></li><li><a href="katello.tests.organizations-api.html" class="wiki_link">katello.tests.organizations</a></li><li><a href="katello.tests.permissions-api.html" class="wiki_link">katello.tests.permissions</a></li><li><a href="katello.tests.promotions-api.html" class="wiki_link">katello.tests.promotions</a></li><li><a href="katello.tests.providers-api.html" class="wiki_link">katello.tests.providers</a></li><li><a href="katello.tests.suite-api.html" class="wiki_link">katello.tests.suite</a></li><li><a href="katello.tests.sync_management-api.html" class="wiki_link">katello.tests.sync_management</a></li><li><a href="katello.tests.systems-api.html" class="wiki_link">katello.tests.systems</a></li><li><a href="katello.tests.templates-api.html" class="wiki_link">katello.tests.templates</a></li><li><a href="katello.tests.users-api.html" class="wiki_link">katello.tests.users</a></li><li><a href="katello.ui-tasks-api.html" class="wiki_link">katello.ui-tasks</a></li><li><a href="katello.validation-api.html" class="wiki_link">katello.validation</a></li><li><a href="user-api.html" class="wiki_link">user</a></li>
+        <li><a href="katello.api-tasks-api.html" class="wiki_link">katello.api-tasks</a></li><li><a href="katello.client-api.html" class="wiki_link">katello.client</a></li><li><a href="katello.conf-api.html" class="wiki_link">katello.conf</a></li><li><a href="katello.locators-api.html" class="wiki_link">katello.locators</a></li><li><a href="katello.rest-api.html" class="wiki_link">katello.rest</a></li><li><a href="katello.setup-api.html" class="wiki_link">katello.setup</a></li><li><a href="katello.tasks-api.html" class="wiki_link">katello.tasks</a></li><li><a href="katello.tests.e2e-api.html" class="wiki_link">katello.tests.e2e</a></li><li><a href="katello.tests.environments-api.html" class="wiki_link">katello.tests.environments</a></li><li><a href="katello.tests.login-api.html" class="wiki_link">katello.tests.login</a></li><li><a href="katello.tests.navigation-api.html" class="wiki_link">katello.tests.navigation</a></li><li><a href="katello.tests.organizations-api.html" class="wiki_link">katello.tests.organizations</a></li><li><a href="katello.tests.permissions-api.html" class="wiki_link">katello.tests.permissions</a></li><li><a href="katello.tests.promotions-api.html" class="wiki_link">katello.tests.promotions</a></li><li><a href="katello.tests.providers-api.html" class="wiki_link">katello.tests.providers</a></li><li><a href="katello.tests.search-api.html" class="wiki_link">katello.tests.search</a></li><li><a href="katello.tests.suite-api.html" class="wiki_link">katello.tests.suite</a></li><li><a href="katello.tests.sync_management-api.html" class="wiki_link">katello.tests.sync_management</a></li><li><a href="katello.tests.systems-api.html" class="wiki_link">katello.tests.systems</a></li><li><a href="katello.tests.templates-api.html" class="wiki_link">katello.tests.templates</a></li><li><a href="katello.tests.users-api.html" class="wiki_link">katello.tests.users</a></li><li><a href="katello.ui-tasks-api.html" class="wiki_link">katello.ui-tasks</a></li><li><a href="katello.validation-api.html" class="wiki_link">katello.validation</a></li><li><a href="selenium-server-api.html" class="wiki_link">selenium-server</a></li><li><a href="user-api.html" class="wiki_link">user</a></li>
       </ul>
     </div>
     
@@ -52,13 +52,9 @@ namespace.
   <div style="margin-left: 1em;" class="toc-section">
     <a href="#toc0">Overview</a>
     <div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.tasks/chain-envs">chain-envs</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
       <a href="#katello.tasks/expecting-error">expecting-error</a>
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#katello.tasks/kw-to-text">kw-to-text</a>
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#katello.tasks/same-name">same-name</a>
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#katello.tasks/timestamps">timestamps</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
       <a href="#katello.tasks/unique-names">unique-names</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
@@ -85,15 +81,28 @@ namespace.
 <div id="var-entry">
   <br />
   <hr />
+  <h2 id="katello.tasks/chain-envs">chain-envs</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (chain-envs envs)
+</pre>
+  <pre id="var-docstr">Given a list of environments, return successive pairs (eg:
+envs ['a' 'b' 'c'] -&gt; ('a' 'b'), ('b' 'c')</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/88343d99c2287d3edb86e11d77680b8fd3885c67/src/katello/tasks.clj#L72" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
   <h2 id="katello.tasks/expecting-error">expecting-error</h2>
   <span id="var-type">macro</span><br />
   <pre id="var-usage">Usage: (expecting-error selector &amp; forms)
 </pre>
   <pre id="var-docstr">Inverts exception handling. Execute forms, if error is caught
 matching selector, nil is returned. If no error is caught,
-an :unexpected-success error is thrown. If a non-matching error
-occurs, the exception will not be caught and will propagate up the
-stack.
+an :success error is thrown. If a non-matching error occurs, the
+exception will not be caught and will propagate up the stack. You
+can still use this even in cases where a success is what you
+expect, just use the selector [:type :success]
 Examples: (expecting-error ArithmeticException (/ 1 0)) -&gt; nil
 
           (expecting-error ArithmeticException (/ 12 3)) -&gt;
@@ -102,49 +111,7 @@ Examples: (expecting-error ArithmeticException (/ 1 0)) -&gt; nil
 slingshot.slingshot/try+ for selector documentation</pre>
   
   
-  <a href="https://github.com/weissjeffm/katello.auto/blob/335cc8f184a06fd2b65cf087f5f5ab082b1ed9fa/src/katello/tasks.clj#L12" id="var-source">Source</a>
-</div><div id="var-entry">
-  <br />
-  <hr />
-  <h2 id="katello.tasks/kw-to-text">kw-to-text</h2>
-  <span id="var-type">function</span><br />
-  <pre id="var-usage">Usage: (kw-to-text kw)
-       (kw-to-text kw word-fn)
-       (kw-to-text kw word-fn val-fn)
-</pre>
-  <pre id="var-docstr">Convert a keyword to plain text, eg, :hi-there 'Hi There'. Passes
-each word through word-fn, and the entire text through val-fn.</pre>
-  
-  
-  <a href="https://github.com/weissjeffm/katello.auto/blob/335cc8f184a06fd2b65cf087f5f5ab082b1ed9fa/src/katello/tasks.clj#L74" id="var-source">Source</a>
-</div><div id="var-entry">
-  <br />
-  <hr />
-  <h2 id="katello.tasks/same-name">same-name</h2>
-  <span id="var-type">function</span><br />
-  <pre id="var-usage">Usage: (same-name coll)
-       (same-name word-fn coll)
-       (same-name word-fn val-fn coll)
-</pre>
-  <pre id="var-docstr">takes a collection of keywords like :registration-settings and
-returns a mapping like :registration-settings -&gt; 'Registration
-Settings'</pre>
-  
-  
-  <a href="https://github.com/weissjeffm/katello.auto/blob/335cc8f184a06fd2b65cf087f5f5ab082b1ed9fa/src/katello/tasks.clj#L61" id="var-source">Source</a>
-</div><div id="var-entry">
-  <br />
-  <hr />
-  <h2 id="katello.tasks/timestamps">timestamps</h2>
-  <span id="var-type">function</span><br />
-  <pre id="var-usage">Usage: (timestamps)
-</pre>
-  <pre id="var-docstr">Returns an infinite lazy sequence of timestamps in ms, starting
-with the current time, incrementing the time by one on each
-successive item.</pre>
-  
-  
-  <a href="https://github.com/weissjeffm/katello.auto/blob/335cc8f184a06fd2b65cf087f5f5ab082b1ed9fa/src/katello/tasks.clj#L31" id="var-source">Source</a>
+  <a href="https://github.com/weissjeffm/katello.auto/blob/88343d99c2287d3edb86e11d77680b8fd3885c67/src/katello/tasks.clj#L13" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -156,7 +123,7 @@ successive item.</pre>
 the base string.</pre>
   
   
-  <a href="https://github.com/weissjeffm/katello.auto/blob/335cc8f184a06fd2b65cf087f5f5ab082b1ed9fa/src/katello/tasks.clj#L38" id="var-source">Source</a>
+  <a href="https://github.com/weissjeffm/katello.auto/blob/88343d99c2287d3edb86e11d77680b8fd3885c67/src/katello/tasks.clj#L42" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -168,7 +135,7 @@ the base string.</pre>
 Example: (unique-name 'joe') -&gt; 'joe-12694956934'</pre>
   
   
-  <a href="https://github.com/weissjeffm/katello.auto/blob/335cc8f184a06fd2b65cf087f5f5ab082b1ed9fa/src/katello/tasks.clj#L44" id="var-source">Source</a>
+  <a href="https://github.com/weissjeffm/katello.auto/blob/88343d99c2287d3edb86e11d77680b8fd3885c67/src/katello/tasks.clj#L48" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -181,7 +148,7 @@ Example: (unique-name 'joe') -&gt; 'joe-12694956934'</pre>
   ['foo-12346748964356' 'bar-12346748964357']</pre>
   
   
-  <a href="https://github.com/weissjeffm/katello.auto/blob/335cc8f184a06fd2b65cf087f5f5ab082b1ed9fa/src/katello/tasks.clj#L50" id="var-source">Source</a>
+  <a href="https://github.com/weissjeffm/katello.auto/blob/88343d99c2287d3edb86e11d77680b8fd3885c67/src/katello/tasks.clj#L54" id="var-source">Source</a>
 </div>
 
 
