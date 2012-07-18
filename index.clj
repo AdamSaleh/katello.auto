@@ -287,7 +287,7 @@
    :wiki-url
    "/katello.api-tasks-api.html#katello.api-tasks/with-creds",
    :doc
-   "Execute body and makes any included katello api calls with the\ngiven user and password.",
+   "Execute BODY and makes any included katello api calls with the\ngiven user and password.",
    :var-type "macro",
    :line 15,
    :file "src/katello/api_tasks.clj"}
@@ -702,7 +702,7 @@
    :wiki-url
    "/katello.tests.e2e-api.html#katello.tests.e2e/test-client-access",
    :doc
-   "In an org named org-name, promotes products into target-env. Then\non a client machine, registers the client to the Katello server,\nsubscribes to the products, and then installs packages-to-install.\nExample of products: [ {:name 'myprod' :poolName 'myprod\n24/7' :repos ['myrepoa' 'myrepob']} ]",
+   "In an Org named org-name, promotes products into target-env. Then\non a client machine, registers the client to the Katello server,\nsubscribes to the products, and then installs packages-to-install.\nExample of products: [ {:name 'myprod' :poolName 'myprod\n24/7' :repos ['myrepoa' 'myrepob']} ]",
    :var-type "function",
    :line 17,
    :file "src/katello/tests/e2e.clj"}
