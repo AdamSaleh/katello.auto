@@ -1,0 +1,1115 @@
+<html>
+  <head>
+    <title>katello.ui-tasks - Katello GUI Automation API documentation</title>
+    <link href="static/favicon.png" rel="icon" />
+    <link href="static/favicon.png" rel="shortcut icon" />
+    <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/wiki.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/internal.css" rel="stylesheet" />
+    <style>.menuWrapper{height: 36px;}</style>
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="http://www.wikispaces.com/_/2009051601/s/internal_ie.css" type="text/css" />
+    <![endif]-->
+  </head>
+<!--
+This document was auto-generated from the source by the clojure autodoc system.
+To report errors or ask questions about the overall documentation structure, formatting,
+etc., contact Tom Faulhaber (google mail name: tomfaulhaber).
+For errors in the documentation of a particular namespace, contact the author of that
+namespace.
+-->
+  <body>
+    <div id="AllContentContainer">
+      <div id="Header">
+	<a id="Logo" href="index.html"><img alt="Clojure" height="100" width="100" src="static/clojure-icon.gif" /></a>
+	<h1><a title="page header title" id="page-header" href="index.html">Katello GUI Automation</a></h1>
+      </div>
+      <div id="leftcolumn"><div style="text-align: center;"></div>
+<div class="menu">
+  <div class="WikiCustomNav WikiElement wiki">
+    <span class="toc-header"><span id="project-name">Katello GUI Automation</span> <span id="version"></span> API</span><br />
+    <ul>
+      <li><a class="wiki_link" href="index.html">Overview</a></li>
+      <li><a class="wiki_link" href="api-index.html">API Index</a></li>
+    </ul>
+    <div class="NamespaceTOC">
+      <span class="toc-header">Namespaces</span>
+      <ul id="left-sidebar-list">
+        <li><a href="katello.api-tasks-api.html" class="wiki_link">katello.api-tasks</a></li><li><a href="katello.client-api.html" class="wiki_link">katello.client</a></li><li><a href="katello.conf-api.html" class="wiki_link">katello.conf</a></li><li><a href="katello.locators-api.html" class="wiki_link">katello.locators</a></li><li><a href="katello.rest-api.html" class="wiki_link">katello.rest</a></li><li><a href="katello.setup-api.html" class="wiki_link">katello.setup</a></li><li><a href="katello.tasks-api.html" class="wiki_link">katello.tasks</a></li><li><a href="katello.tests.e2e-api.html" class="wiki_link">katello.tests.e2e</a></li><li><a href="katello.tests.environments-api.html" class="wiki_link">katello.tests.environments</a></li><li><a href="katello.tests.login-api.html" class="wiki_link">katello.tests.login</a></li><li><a href="katello.tests.navigation-api.html" class="wiki_link">katello.tests.navigation</a></li><li><a href="katello.tests.organizations-api.html" class="wiki_link">katello.tests.organizations</a></li><li><a href="katello.tests.permissions-api.html" class="wiki_link">katello.tests.permissions</a></li><li><a href="katello.tests.promotions-api.html" class="wiki_link">katello.tests.promotions</a></li><li><a href="katello.tests.providers-api.html" class="wiki_link">katello.tests.providers</a></li><li><a href="katello.tests.search-api.html" class="wiki_link">katello.tests.search</a></li><li><a href="katello.tests.suite-api.html" class="wiki_link">katello.tests.suite</a></li><li><a href="katello.tests.sync_management-api.html" class="wiki_link">katello.tests.sync_management</a></li><li><a href="katello.tests.systems-api.html" class="wiki_link">katello.tests.systems</a></li><li><a href="katello.tests.templates-api.html" class="wiki_link">katello.tests.templates</a></li><li><a href="katello.tests.users-api.html" class="wiki_link">katello.tests.users</a></li><li><a href="katello.ui-tasks-api.html" class="wiki_link">katello.ui-tasks</a></li><li><a href="katello.validation-api.html" class="wiki_link">katello.validation</a></li><li><a href="selenium-server-api.html" class="wiki_link">selenium-server</a></li><li><a href="user-api.html" class="wiki_link">user</a></li>
+      </ul>
+    </div>
+    
+    <a href="http://clojure.org" class="wiki_link">Clojure Home</a>
+  </div>
+</div>
+</div>
+      <div id="rightcolumn">
+	<div id="Content">
+	  <div class="contentBox"><div class="innerContentBox">
+              <div id="content_view" class="wiki wikiPage">
+                <div id="right-sidebar"><div id="toc">
+  <h1 class="nopad">Table of Contents</h1>
+  <div style="margin-left: 1em;" class="toc-section">
+    <a href="#toc0">Overview</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/activate-in-place">activate-in-place</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/add-product">add-product</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/add-repo">add-repo</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/add-system-system-groups">add-system-system-groups</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/add-to-changeset">add-to-changeset</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/add-to-template">add-to-template</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/assign-role">assign-role</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/assign-user-default-org-and-env">assign-user-default-org-and-env</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/check-for-error">check-for-error</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/check-for-success">check-for-success</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-activation-key">create-activation-key</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-changeset">create-changeset</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-environment">create-environment</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-environment-path">create-environment-path</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-organization">create-organization</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-provider">create-provider</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-role">create-role</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-sync-plan">create-sync-plan</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-system">create-system</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-system-groups">create-system-groups</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-template">create-template</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/create-user">create-user</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/current-sync-plan">current-sync-plan</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/current-user">current-user</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/delete-activation-key">delete-activation-key</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/delete-environment">delete-environment</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/delete-organization">delete-organization</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/delete-product">delete-product</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/delete-provider">delete-provider</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/delete-repo">delete-repo</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/delete-user">delete-user</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/edit-environment">edit-environment</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/edit-organization">edit-organization</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/edit-provider">edit-provider</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/edit-role">edit-role</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/edit-sync-plan">edit-sync-plan</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/edit-system">edit-system</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/edit-user">edit-user</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/enable-redhat-repositories">enable-redhat-repositories</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/ensure-current-user">ensure-current-user</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/environment-content">environment-content</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/environment-has-content?">environment-has-content?</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/environment-other-possible-priors">environment-other-possible-priors</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/errtype">errtype</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/fill-ajax-form">fill-ajax-form</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/in-place-edit">in-place-edit</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/known-errors">known-errors</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/logged-in?">logged-in?</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/logged-out?">logged-out?</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/login">login</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/logout">logout</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/manifest-already-uploaded?">manifest-already-uploaded?</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/matching-errors">matching-errors</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/navigate">navigate</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/notification">notification</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/promote-changeset">promote-changeset</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/promote-content">promote-content</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/remove-gpg-key">remove-gpg-key</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/remove-package-filter">remove-package-filter</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/remove-role">remove-role</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/search">search</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/subscribe-system">subscribe-system</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/success?">success?</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/switch-org">switch-org</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/sync-complete-status">sync-complete-status</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/sync-repos">sync-repos</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/sync-schedule">sync-schedule</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/sync-success?">sync-success?</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/upload-subscription-manifest">upload-subscription-manifest</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/validation-errors">validation-errors</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/verify-success">verify-success</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.ui-tasks/with-org">with-org</a>
+    </div>
+    <br />
+  </div>
+</div>
+</div>
+                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">katello.ui-tasks</span>
+  - <span id="header-project">Katello GUI Automation</span> <span id="header-version"></span>
+  </h1>
+
+<br />Full namespace name: <span id="long-name">katello.ui-tasks</span>
+<p></p>
+<h2>Overview</h2>
+<pre id="namespace-docstr"></pre>
+
+
+<br />
+<h2>Public Variables and Functions</h2>
+<div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/activate-in-place">activate-in-place</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (activate-in-place loc)
+</pre>
+  <pre id="var-docstr">For an in-place edit input, switch it from read-only to editing
+mode. Takes the locator of the input in editing mode as an
+argument.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L154" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/add-product">add-product</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (add-product {:keys [provider-name name description]})
+</pre>
+  <pre id="var-docstr">Adds a product to a provider, with the given name and description.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L394" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/add-repo">add-repo</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (add-repo {:keys [provider-name product-name name url]})
+</pre>
+  <pre id="var-docstr">Adds a repository under the given provider and product. Requires a
+name and url be given for the repo.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L413" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/add-system-system-groups">add-system-system-groups</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (add-system-system-groups name systemgroup)
+</pre>
+  <pre id="var-docstr">Adds a system to a System-Group</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L944" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/add-to-changeset">add-to-changeset</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (add-to-changeset changeset-name from-env to-env content)
+</pre>
+  <pre id="var-docstr">Adds the given content to an existing changeset. The originating
+and target environments need to be specified to find to locate the
+changeset.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L183" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/add-to-template">add-to-template</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (add-to-template template content)
+</pre>
+  <pre id="var-docstr">Adds content to a given template.  Example:
+(add-to-template 'mytemplate' [{:product 'prod3'
+                                :packages ['rpm1' 'rpm2']}
+                               {:product 'prod6'
+                                :repositories ['x86_64']}]</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L822" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/assign-role">assign-role</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (assign-role {:keys [user roles]})
+</pre>
+  <pre id="var-docstr">Assigns the given user to the given roles. Roles should be a list
+of roles to assign.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L578" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/assign-user-default-org-and-env">assign-user-default-org-and-env</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (assign-user-default-org-and-env username org-name env-name)
+</pre>
+  <pre id="var-docstr">Assigns a default organization and environment to a user</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L869" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/check-for-error">check-for-error</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (check-for-error &amp; [timeout])
+</pre>
+  <pre id="var-docstr">Waits for a notification up to the optional timeout (in ms), throws
+an exception if error notification appears.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L122" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/check-for-success">check-for-success</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (check-for-success &amp; [max-wait-ms])
+</pre>
+  <pre id="var-docstr">Gets any notification from the UI, if there is none, or it's not a
+success notification, raise an exception. Otherwise return the type
+and text of the message. Takes an optional max amount of time to
+wait, in ms.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L110" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-activation-key">create-activation-key</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-activation-key {:keys [name description environment system-template], :as m})
+</pre>
+  <pre id="var-docstr">Creates an activation key with the given properties. Description
+and system-template are optional.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L768" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-changeset">create-changeset</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-changeset env-name next-env-name changeset-name)
+</pre>
+  <pre id="var-docstr">Creates a changeset for promotion from env-name to next-env name.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L173" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-environment">create-environment</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-environment name {:keys [org-name description prior-env]})
+</pre>
+  <pre id="var-docstr">Creates an environment with the given name, and a map containing
+the organization name to create the environment in, the prior
+environment, and an optional description.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L321" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-environment-path">create-environment-path</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-environment-path org-name environments)
+</pre>
+  <pre id="var-docstr">Creates a path of environments in the given org. All the names in
+the environment list must not already exist in the given org. Example:
+(create-environment-path 'ACME_Corporation' ['Dev' 'QA' 'Production'])</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L375" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-organization">create-organization</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-organization name &amp; [{:keys [description initial-env-name initial-env-description go-through-org-switcher]}])
+</pre>
+  <pre id="var-docstr">Creates an organization with the given name and optional description.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L301" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-provider">create-provider</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-provider {:keys [name description]})
+</pre>
+  <pre id="var-docstr">Creates a custom provider with the given name and description.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L385" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-role">create-role</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-role name &amp; [{:keys [description]}])
+</pre>
+  <pre id="var-docstr">Creates a role with the given name and optional description.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L568" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-sync-plan">create-sync-plan</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-sync-plan {:keys [name description interval start-date start-date-literal start-time-literal], :as m})
+</pre>
+  <pre id="var-docstr">Creates a sync plan with the given properties. Either specify a
+start-date (as a java.util.Date object) or a separate string for
+start-date-literal 'MM/dd/yyyy', and start-time-literal 'hh:mm aa'
+The latter can also be used to specify invalid dates for validation
+tests.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L714" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-system">create-system</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-system name &amp; [{:keys [sockets system-arch]}])
+</pre>
+  <pre id="var-docstr">Creates a system</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L925" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-system-groups">create-system-groups</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-system-groups name &amp; [{:keys [description]}])
+</pre>
+  <pre id="var-docstr">Creates a system-groups</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L935" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-template">create-template</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-template {:keys [name description]})
+</pre>
+  <pre id="var-docstr">Creates a system template with the given name and optional
+description.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L812" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/create-user">create-user</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (create-user username {:keys [password password-confirm email default-org default-env]})
+</pre>
+  <pre id="var-docstr">Creates a user with the given name and properties.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L500" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/current-sync-plan">current-sync-plan</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (current-sync-plan product-names)
+</pre>
+  <pre id="var-docstr">Returns a map of what sync plan a product is currently scheduled
+for. nil if UI says 'None'</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L758" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/current-user">current-user</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (current-user)
+</pre>
+  <pre id="var-docstr">Returns the name of the currently logged in user, or nil if logged out.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L487" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/delete-activation-key">delete-activation-key</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (delete-activation-key name)
+</pre>
+  <pre id="var-docstr">Deletes the given activation key.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L780" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/delete-environment">delete-environment</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (delete-environment env-name {:keys [org-name]})
+</pre>
+  <pre id="var-docstr">Deletes an environment from the given organization.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L333" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/delete-organization">delete-organization</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (delete-organization org-name)
+</pre>
+  <pre id="var-docstr">Deletes the named organization.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L312" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/delete-product">delete-product</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (delete-product {:keys [name provider-name]})
+</pre>
+  <pre id="var-docstr">Deletes a product from the given provider.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L404" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/delete-provider">delete-provider</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (delete-provider name)
+</pre>
+  <pre id="var-docstr">Deletes the named custom provider.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L434" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/delete-repo">delete-repo</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (delete-repo {:keys [name provider-name product-name]})
+</pre>
+  <pre id="var-docstr">Deletes a repository from the given provider and product.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L424" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/delete-user">delete-user</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (delete-user username)
+</pre>
+  <pre id="var-docstr">Deletes the given user.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L516" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/edit-environment">edit-environment</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (edit-environment env-name {:keys [org-name new-name description prior]})
+</pre>
+  <pre id="var-docstr">Edits an environment with the given name. Also takes a map
+containing the name of the environment's organization, and optional
+fields: a new name, a new description, and a new prior
+environment.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L352" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/edit-organization">edit-organization</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (edit-organization org-name &amp; {:keys [description]})
+</pre>
+  <pre id="var-docstr">Edits an organization. Currently the only property of an org that
+can be edited is the org's description.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L344" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/edit-provider">edit-provider</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (edit-provider {:keys [name new-name description]})
+</pre>
+  <pre id="var-docstr">Edits the named custom provider. Takes an optional new name, and
+new description.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L442" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/edit-role">edit-role</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (edit-role name {:keys [add-permissions remove-permissions users]})
+</pre>
+  <pre id="var-docstr">Edits a role to add new permissions, remove existing permissions,
+and assign users to the role. Example:
+
+(edit-role 'myrole'
+           {:add-permissions [{:resource-type 'Organizations'
+                               :verbs ['Read Organization']
+                               :name 'newPerm1'}]
+            :remove-permissions ['existingPerm1' 'existingPerm2']
+            :users ['joe' 'bob']})</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L588" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/edit-sync-plan">edit-sync-plan</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (edit-sync-plan name {:keys [new-name description interval start-date start-date-literal start-time-literal], :as m})
+</pre>
+  <pre id="var-docstr">Edits the given sync plan with optional new properties. See also
+create-sync-plan for more details.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L732" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/edit-system">edit-system</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (edit-system name {:keys [new-name description location release-version]})
+</pre>
+  <pre id="var-docstr">Edits the properties of the given system. Optionally specify a new
+name, a new description, and a new location.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L673" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/edit-user">edit-user</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (edit-user username {:keys [inline-help clear-disabled-helptips new-password new-password-confirm new-email]})
+</pre>
+  <pre id="var-docstr">Edits the given user, changing any of the given properties (can
+change more than one at once).</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L523" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/enable-redhat-repositories">enable-redhat-repositories</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (enable-redhat-repositories repos)
+</pre>
+  <pre id="var-docstr">Enable the given list of repos in the current org.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L848" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/ensure-current-user">ensure-current-user</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (ensure-current-user username password)
+</pre>
+  <pre id="var-docstr">If username is already logged in, does nothing. Otherwise logs in
+with given username and password.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L493" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/environment-content">environment-content</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (environment-content env-name)
+</pre>
+  <pre id="var-docstr">Returns the content that is available to promote, in the given environment.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L269" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/environment-has-content?">environment-has-content?</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (environment-has-content? env content)
+</pre>
+  <pre id="var-docstr">If all the content is present in the given environment, returns true.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L287" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/environment-other-possible-priors">environment-other-possible-priors</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (environment-other-possible-priors org-name env-name)
+</pre>
+  <pre id="var-docstr">Returns a set of priors that are selectable for the given
+environment (will not include the currently selected prior).</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L366" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/errtype">errtype</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (errtype t)
+</pre>
+  <pre id="var-docstr">creates a predicate that matches a caught UI error of the given
+type (see known-errors). Use this predicate in a slingshot 'catch'
+statement. If any of the error types match (in case of multiple
+validation errors), the predicate will return true. Uses isa? for
+comparison, so hierarchies will be checked.
+example (try+ (dothat) (catch (errtype ::validation-error) _ nil))</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L97" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/fill-ajax-form">fill-ajax-form</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (fill-ajax-form items submit)
+</pre>
+  <pre id="var-docstr">Fills in a web form and clicks the submit button. Only waits for
+ajax calls to complete. Items should be a map, where the keys are
+locators for form elements, and values are the values to fill in.
+Submit should be a locator for the form submit button.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L146" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/in-place-edit">in-place-edit</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (in-place-edit items)
+</pre>
+  <pre id="var-docstr">Fill out a form that uses in-place editing.  Takes a map of
+locators to values.  The locators given should be for the
+editing-mode version of the input, it will be activated from its
+read-only state automatically.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L161" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/known-errors">known-errors</h2>
+  <span id="var-type">var</span><br />
+  <pre id="var-usage"></pre>
+  <pre id="var-docstr">A mapping of known errors in Katello. This helps
+automation throw and catch the right type of exception interally,
+taking UI error messages and mapping them to internal error types.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L44" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/logged-in?">logged-in?</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (logged-in?)
+</pre>
+  <pre id="var-docstr">Returns true if the browser is currently showing a page where a
+user is logged in.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L450" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/logged-out?">logged-out?</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (logged-out?)
+</pre>
+  <pre id="var-docstr">Returns true if the login page is displayed.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L456" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/login">login</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (login username password &amp; [org])
+</pre>
+  <pre id="var-docstr">Logs in a user to the UI with the given username and password. If
+any user is currently logged in, he will be logged out first.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L473" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/logout">logout</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (logout)
+</pre>
+  <pre id="var-docstr">Logs out the current user from the UI.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L461" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/manifest-already-uploaded?">manifest-already-uploaded?</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (manifest-already-uploaded?)
+</pre>
+  <pre id="var-docstr">Returns true if the current organization already has Red Hat
+content uploaded.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L805" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/matching-errors">matching-errors</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (matching-errors m)
+</pre>
+  <pre id="var-docstr">Returns a set of matching known errors</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L56" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/navigate">navigate</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (navigate location-kw &amp; [argmap])
+</pre>
+  <pre id="var-docstr">Navigates to a named location in the UI. The first
+argument should be a keyword for the place in the page tree to
+navigate to. The 2nd optional argument is a mapping of keywords to
+strings, if any arguments are needed to navigate there.
+Example: (navigate :named-organization-page {:org-name 'My org'})
+See also katello.locators/page-tree for all the places that can be
+navigated to.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L136" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/notification">notification</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (notification &amp; [max-wait-ms])
+</pre>
+  <pre id="var-docstr">Gets the notification from the page, returns a map object
+representing the notification (or nil if no notification is present
+within the optional timeout period). Default timeout is 15
+seconds.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L78" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/promote-changeset">promote-changeset</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (promote-changeset changeset-name {:keys [from-env to-env timeout-ms]})
+</pre>
+  <pre id="var-docstr">Promotes the given changeset to its target environment. An optional
+timeout-ms key will specify how long to wait for the promotion to
+complete successfully.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L205" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/promote-content">promote-content</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (promote-content from-env to-env content)
+</pre>
+  <pre id="var-docstr">Promotes the given content from one environment to another. Example
+content:
+   {:products ['Product1' 'Product2']} </pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L239" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/remove-gpg-key">remove-gpg-key</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (remove-gpg-key gpg-key-name)
+</pre>
+  <pre id="var-docstr">Deletes existing GPG keys</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L892" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/remove-package-filter">remove-package-filter</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (remove-package-filter package-filter-name)
+</pre>
+  <pre id="var-docstr">Deletes existing Package Filter</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L917" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/remove-role">remove-role</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (remove-role name)
+</pre>
+  <pre id="var-docstr">Deletes the given role.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L634" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/search">search</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (search entity-type &amp; [{:keys [criteria scope with-favorite add-as-favorite]}])
+</pre>
+  <pre id="var-docstr">Search for criteria in entity-type, scope not yet implemented.
+if with-favorite is specified, criteria is ignored and the existing
+search favorite is chosen from the search menu. If add-as-favorite
+is true, use criteria and save it as a favorite, and also execute
+the search.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L549" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/subscribe-system">subscribe-system</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (subscribe-system {:keys [system-name add-products remove-products auto-subscribe sla]})
+</pre>
+  <pre id="var-docstr">Subscribes the given system to the products. (products should be a
+list). Can also set the auto-subscribe for a particular SLA.
+auto-subscribe must be either true or false to select a new setting
+for auto-subscribe and SLA. If auto-subscribe is nil, no changes
+will be made.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L684" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/success?">success?</h2>
+  <span id="var-type">var</span><br />
+  <pre id="var-usage"></pre>
+  <pre id="var-docstr">Returns true if the given notification is a 'success' type
+notification (aka green notification in the UI).</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L70" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/switch-org">switch-org</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (switch-org org-name)
+</pre>
+  <pre id="var-docstr">Switch to the given organization in the UI.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L468" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/sync-complete-status">sync-complete-status</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (sync-complete-status product)
+</pre>
+  <pre id="var-docstr">Returns final status if complete. If sync is still in progress, not
+synced, or queued, returns nil.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L645" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/sync-repos">sync-repos</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (sync-repos repos &amp; [{:keys [timeout]}])
+</pre>
+  <pre id="var-docstr">Syncs the given list of repositories. Also takes an optional
+timeout (in ms) of how long to wait for the sync to complete before
+throwing an error.  Default timeout is 2 minutes.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L657" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/sync-schedule">sync-schedule</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (sync-schedule {:keys [products plan-name]})
+</pre>
+  <pre id="var-docstr">Schedules the given list of products to be synced using the given
+sync plan name.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L747" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/sync-success?">sync-success?</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (sync-success? res)
+</pre>
+  <pre id="var-docstr">Returns true if given sync result is a success.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L652" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/upload-subscription-manifest">upload-subscription-manifest</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (upload-subscription-manifest file-path &amp; [{:keys [repository-url force]}])
+</pre>
+  <pre id="var-docstr">Uploads a subscription manifest from the filesystem local to the
+selenium browser. Optionally specify a new repository url for Red
+Hat content- if not specified, the default url is kept. Optionally
+specify whether to force the upload.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L788" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/validation-errors">validation-errors</h2>
+  <span id="var-type">var</span><br />
+  <pre id="var-usage"></pre>
+  <pre id="var-docstr">All the different validation error messages that Katello
+can throw. The keys are keywords that can be used to
+refer to this type of error, and the values are regexes
+that match the error notification message in the UI.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L23" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/verify-success">verify-success</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (verify-success task-fn)
+</pre>
+  <pre id="var-docstr">Calls task-fn and checks for a success message afterwards. If none
+is found, or an error notification appears, throws an exception.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L129" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks/with-org">with-org</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (with-org org-name &amp; body)
+</pre>
+  <pre id="var-docstr">Switch to organization org-name, then execute the code in body. Finally,
+switch back to the previous org, even if there was an error.</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/510e24542363de75b5118fd73e2a2e81e1f2acbd/src/katello/ui_tasks.clj#L860" id="var-source">Source</a>
+</div>
+
+
+</div>
+              </div>
+            </div>
+          </div>
+	</div>
+	<div id="foot">
+	  <div style="text-align: center;" id="copyright">No copyright info </div>
+	</div>
+      </div>
+      <div id="DesignedBy">Logo &amp; site design by <a title="Visit Tom Hickey's website." href="http://www.tomhickey.com">Tom Hickey</a>.<br />
+      Clojure auto-documentation system by Tom Faulhaber.</div>
+    </div>
+    <!-- /AllContentContainer -->
+  </body>
+
+</html>

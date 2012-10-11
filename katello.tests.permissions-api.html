@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <title>katello.tests.permissions - Katello GUI Automation API documentation</title>
+    <link href="static/favicon.png" rel="icon" />
+    <link href="static/favicon.png" rel="shortcut icon" />
+    <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/wiki.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/internal.css" rel="stylesheet" />
+    <style>.menuWrapper{height: 36px;}</style>
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="http://www.wikispaces.com/_/2009051601/s/internal_ie.css" type="text/css" />
+    <![endif]-->
+  </head>
+<!--
+This document was auto-generated from the source by the clojure autodoc system.
+To report errors or ask questions about the overall documentation structure, formatting,
+etc., contact Tom Faulhaber (google mail name: tomfaulhaber).
+For errors in the documentation of a particular namespace, contact the author of that
+namespace.
+-->
+  <body>
+    <div id="AllContentContainer">
+      <div id="Header">
+	<a id="Logo" href="index.html"><img alt="Clojure" height="100" width="100" src="static/clojure-icon.gif" /></a>
+	<h1><a title="page header title" id="page-header" href="index.html">Katello GUI Automation</a></h1>
+      </div>
+      <div id="leftcolumn"><div style="text-align: center;"></div>
+<div class="menu">
+  <div class="WikiCustomNav WikiElement wiki">
+    <span class="toc-header"><span id="project-name">Katello GUI Automation</span> <span id="version"></span> API</span><br />
+    <ul>
+      <li><a class="wiki_link" href="index.html">Overview</a></li>
+      <li><a class="wiki_link" href="api-index.html">API Index</a></li>
+    </ul>
+    <div class="NamespaceTOC">
+      <span class="toc-header">Namespaces</span>
+      <ul id="left-sidebar-list">
+        <li><a href="katello.api-tasks-api.html" class="wiki_link">katello.api-tasks</a></li><li><a href="katello.client-api.html" class="wiki_link">katello.client</a></li><li><a href="katello.conf-api.html" class="wiki_link">katello.conf</a></li><li><a href="katello.locators-api.html" class="wiki_link">katello.locators</a></li><li><a href="katello.rest-api.html" class="wiki_link">katello.rest</a></li><li><a href="katello.setup-api.html" class="wiki_link">katello.setup</a></li><li><a href="katello.tasks-api.html" class="wiki_link">katello.tasks</a></li><li><a href="katello.tests.e2e-api.html" class="wiki_link">katello.tests.e2e</a></li><li><a href="katello.tests.environments-api.html" class="wiki_link">katello.tests.environments</a></li><li><a href="katello.tests.login-api.html" class="wiki_link">katello.tests.login</a></li><li><a href="katello.tests.navigation-api.html" class="wiki_link">katello.tests.navigation</a></li><li><a href="katello.tests.organizations-api.html" class="wiki_link">katello.tests.organizations</a></li><li><a href="katello.tests.permissions-api.html" class="wiki_link">katello.tests.permissions</a></li><li><a href="katello.tests.promotions-api.html" class="wiki_link">katello.tests.promotions</a></li><li><a href="katello.tests.providers-api.html" class="wiki_link">katello.tests.providers</a></li><li><a href="katello.tests.search-api.html" class="wiki_link">katello.tests.search</a></li><li><a href="katello.tests.suite-api.html" class="wiki_link">katello.tests.suite</a></li><li><a href="katello.tests.sync_management-api.html" class="wiki_link">katello.tests.sync_management</a></li><li><a href="katello.tests.systems-api.html" class="wiki_link">katello.tests.systems</a></li><li><a href="katello.tests.templates-api.html" class="wiki_link">katello.tests.templates</a></li><li><a href="katello.tests.users-api.html" class="wiki_link">katello.tests.users</a></li><li><a href="katello.ui-tasks-api.html" class="wiki_link">katello.ui-tasks</a></li><li><a href="katello.validation-api.html" class="wiki_link">katello.validation</a></li><li><a href="selenium-server-api.html" class="wiki_link">selenium-server</a></li><li><a href="user-api.html" class="wiki_link">user</a></li>
+      </ul>
+    </div>
+    
+    <a href="http://clojure.org" class="wiki_link">Clojure Home</a>
+  </div>
+</div>
+</div>
+      <div id="rightcolumn">
+	<div id="Content">
+	  <div class="contentBox"><div class="innerContentBox">
+              <div id="content_view" class="wiki wikiPage">
+                <div id="right-sidebar"><div id="toc">
+  <h1 class="nopad">Table of Contents</h1>
+  <div style="margin-left: 1em;" class="toc-section">
+    <a href="#toc0">Overview</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a href="#katello.tests.permissions/verify-access">verify-access</a>
+    </div>
+    <br />
+  </div>
+</div>
+</div>
+                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">katello.tests.permissions</span>
+  - <span id="header-project">Katello GUI Automation</span> <span id="header-version"></span>
+  </h1>
+
+<br />Full namespace name: <span id="long-name">katello.tests.permissions</span>
+<p></p>
+<h2>Overview</h2>
+<pre id="namespace-docstr"></pre>
+
+
+<br />
+<h2>Public Variables and Functions</h2>
+<div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.permissions/verify-access">verify-access</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (verify-access &amp; {:keys [permissions allowed-actions disallowed-actions setup]})
+</pre>
+  <pre id="var-docstr">Assigns a new user to a new role with the given permissions. That
+user is logs in, and tries the allowed-actions to ensure they all
+succeed, finally tries disallowed-actions to make sure they all
+fail. If any setup needs to be done to set up an action, a no-arg
+function can be passed in as setup. (for instance, if you're
+testing a permission to modify users, you need a test user to
+attempt to modify).</pre>
+  
+  
+  <a href="https://github.com/weissjeffm/katello.auto/blob/243a52417791e960129840a311b2990e836cd855/src/katello/tests/permissions.clj#L39" id="var-source">Source</a>
+</div>
+
+
+</div>
+              </div>
+            </div>
+          </div>
+	</div>
+	<div id="foot">
+	  <div style="text-align: center;" id="copyright">No copyright info </div>
+	</div>
+      </div>
+      <div id="DesignedBy">Logo &amp; site design by <a title="Visit Tom Hickey's website." href="http://www.tomhickey.com">Tom Hickey</a>.<br />
+      Clojure auto-documentation system by Tom Faulhaber.</div>
+    </div>
+    <!-- /AllContentContainer -->
+  </body>
+
+</html>

@@ -1,0 +1,500 @@
+<html>
+  <head>
+    <title>Overview - Katello GUI Automation API documentation</title>
+    <link href="static/favicon.png" rel="icon" />
+    <link href="static/favicon.png" rel="shortcut icon" />
+    <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/wiki.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/internal.css" rel="stylesheet" />
+    <style>.menuWrapper{height: 36px;}</style>
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="http://www.wikispaces.com/_/2009051601/s/internal_ie.css" type="text/css" />
+    <![endif]-->
+  </head>
+<!--
+This document was auto-generated from the source by the clojure autodoc system.
+To report errors or ask questions about the overall documentation structure, formatting,
+etc., contact Tom Faulhaber (google mail name: tomfaulhaber).
+For errors in the documentation of a particular namespace, contact the author of that
+namespace.
+-->
+  <body>
+    <div id="AllContentContainer">
+      <div id="Header">
+	<a id="Logo" href="index.html"><img alt="Clojure" height="100" width="100" src="static/clojure-icon.gif" /></a>
+	<h1><a title="page header title" id="page-header" href="index.html">Katello GUI Automation</a></h1>
+      </div>
+      <div id="leftcolumn"><div style="text-align: center;"></div>
+<div class="menu">
+  <div class="WikiCustomNav WikiElement wiki">
+    <span class="toc-header"><span id="project-name">Katello GUI Automation</span> <span id="version"></span> API</span><br />
+    <ul>
+      <li><a class="wiki_link" href="index.html">Overview</a></li>
+      <li><a class="wiki_link" href="api-index.html">API Index</a></li>
+    </ul>
+    <div class="NamespaceTOC">
+      <span class="toc-header">Namespaces</span>
+      <ul id="left-sidebar-list">
+        <li><a href="katello.api-tasks-api.html" class="wiki_link">katello.api-tasks</a></li><li><a href="katello.client-api.html" class="wiki_link">katello.client</a></li><li><a href="katello.conf-api.html" class="wiki_link">katello.conf</a></li><li><a href="katello.locators-api.html" class="wiki_link">katello.locators</a></li><li><a href="katello.rest-api.html" class="wiki_link">katello.rest</a></li><li><a href="katello.setup-api.html" class="wiki_link">katello.setup</a></li><li><a href="katello.tasks-api.html" class="wiki_link">katello.tasks</a></li><li><a href="katello.tests.e2e-api.html" class="wiki_link">katello.tests.e2e</a></li><li><a href="katello.tests.environments-api.html" class="wiki_link">katello.tests.environments</a></li><li><a href="katello.tests.login-api.html" class="wiki_link">katello.tests.login</a></li><li><a href="katello.tests.navigation-api.html" class="wiki_link">katello.tests.navigation</a></li><li><a href="katello.tests.organizations-api.html" class="wiki_link">katello.tests.organizations</a></li><li><a href="katello.tests.permissions-api.html" class="wiki_link">katello.tests.permissions</a></li><li><a href="katello.tests.promotions-api.html" class="wiki_link">katello.tests.promotions</a></li><li><a href="katello.tests.providers-api.html" class="wiki_link">katello.tests.providers</a></li><li><a href="katello.tests.search-api.html" class="wiki_link">katello.tests.search</a></li><li><a href="katello.tests.suite-api.html" class="wiki_link">katello.tests.suite</a></li><li><a href="katello.tests.sync_management-api.html" class="wiki_link">katello.tests.sync_management</a></li><li><a href="katello.tests.systems-api.html" class="wiki_link">katello.tests.systems</a></li><li><a href="katello.tests.templates-api.html" class="wiki_link">katello.tests.templates</a></li><li><a href="katello.tests.users-api.html" class="wiki_link">katello.tests.users</a></li><li><a href="katello.ui-tasks-api.html" class="wiki_link">katello.ui-tasks</a></li><li><a href="katello.validation-api.html" class="wiki_link">katello.validation</a></li><li><a href="selenium-server-api.html" class="wiki_link">selenium-server</a></li><li><a href="user-api.html" class="wiki_link">user</a></li>
+      </ul>
+    </div>
+    
+    <a href="http://clojure.org" class="wiki_link">Clojure Home</a>
+  </div>
+</div>
+</div>
+      <div id="rightcolumn">
+	<div id="Content">
+	  <div class="contentBox"><div class="innerContentBox">
+              <div id="content_view" class="wiki wikiPage">
+                <div id="right-sidebar"><div id="toc">
+  <h1 class="nopad">Table of Contents</h1>
+  <div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.api-tasks">katello.api-tasks</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.client">katello.client</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.conf">katello.conf</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.locators">katello.locators</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.rest">katello.rest</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.setup">katello.setup</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tasks">katello.tasks</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.e2e">katello.tests.e2e</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.environments">katello.tests.environments</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.login">katello.tests.login</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.navigation">katello.tests.navigation</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.organizations">katello.tests.organizations</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.permissions">katello.tests.permissions</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.promotions">katello.tests.promotions</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.providers">katello.tests.providers</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.search">katello.tests.search</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.suite">katello.tests.suite</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.sync_management">katello.tests.sync_management</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.systems">katello.tests.systems</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.templates">katello.tests.templates</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.tests.users">katello.tests.users</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.ui-tasks">katello.ui-tasks</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#katello.validation">katello.validation</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#selenium-server">selenium-server</a>
+    
+    <br />
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#user">user</a>
+    
+    <br />
+  </div>
+</div>
+</div>
+                <div id="content-tag"><h1 id="toc0">API Overview - <span id="header-project">Katello GUI Automation</span> <span id="header-version"></span></h1>
+<br />
+<div id="project-description">Katello automation</div>
+<br />
+<div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.api-tasks">katello.api-tasks</h2>
+  
+  <a href="katello.api-tasks-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/all-entities" id="var-tag">all-entities</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/assoc-if-set" id="var-tag">assoc-if-set</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/ensure-env-exist" id="var-tag">ensure-env-exist</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/katello-only" id="var-tag">katello-only</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/promote" id="var-tag">promote</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/promote-changeset" id="var-tag">promote-changeset</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/random-facts" id="var-tag">random-facts</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/uri-for-entity-type" id="var-tag">uri-for-entity-type</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/with-admin" id="var-tag">with-admin</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/with-admin-creds" id="var-tag">with-admin-creds</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/with-admin-org" id="var-tag">with-admin-org</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/with-creds" id="var-tag">with-creds</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/with-env" id="var-tag">with-env</a> </span><span id="var-link"><a href="katello.api-tasks-api.html#katello.api-tasks/with-org" id="var-tag">with-org</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.client">katello.client</h2>
+  
+  <a href="katello.client-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.client-api.html#katello.client/sm-cmd" id="var-tag">sm-cmd</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.conf">katello.conf</h2>
+  
+  <a href="katello.conf-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.conf-api.html#katello.conf/init" id="var-tag">init</a> </span><span id="var-link"><a href="katello.conf-api.html#katello.conf/no-clients-defined" id="var-tag">no-clients-defined</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.locators">katello.locators</h2>
+  
+  <a href="katello.locators-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.locators-api.html#katello.locators/choose-left-pane" id="var-tag">choose-left-pane</a> </span><span id="var-link"><a href="katello.locators-api.html#katello.locators/define-strategies" id="var-tag">define-strategies</a> </span><span id="var-link"><a href="katello.locators-api.html#katello.locators/inactive-edit-field" id="var-tag">inactive-edit-field</a> </span><span id="var-link"><a href="katello.locators-api.html#katello.locators/left-pane-item" id="var-tag">left-pane-item</a> </span><span id="var-link"><a href="katello.locators-api.html#katello.locators/page-tree" id="var-tag">page-tree</a> </span><span id="var-link"><a href="katello.locators-api.html#katello.locators/promotion-env-breadcrumb" id="var-tag">promotion-env-breadcrumb</a> </span><span id="var-link"><a href="katello.locators-api.html#katello.locators/toggle" id="var-tag">toggle</a> </span><span id="var-link"><a href="katello.locators-api.html#katello.locators/toggler" id="var-tag">toggler</a> </span><span id="var-link"><a href="katello.locators-api.html#katello.locators/uimap" id="var-tag">uimap</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.rest">katello.rest</h2>
+  
+  <a href="katello.rest-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.rest-api.html#katello.rest/delete" id="var-tag">delete</a> </span><span id="var-link"><a href="katello.rest-api.html#katello.rest/get" id="var-tag">get</a> </span><span id="var-link"><a href="katello.rest-api.html#katello.rest/post" id="var-tag">post</a> </span><span id="var-link"><a href="katello.rest-api.html#katello.rest/post-multipart" id="var-tag">post-multipart</a> </span><span id="var-link"><a href="katello.rest-api.html#katello.rest/put" id="var-tag">put</a> </span><span id="var-link"><a href="katello.rest-api.html#katello.rest/wait-for-string-and-decode-json" id="var-tag">wait-for-string-and-decode-json</a> </span><span id="var-link"><a href="katello.rest-api.html#katello.rest/with-client-auth" id="var-tag">with-client-auth</a> </span><span id="var-link"><a href="katello.rest-api.html#katello.rest/with-client-cert" id="var-tag">with-client-cert</a> </span><span id="var-link"><a href="katello.rest-api.html#katello.rest/with-no-auth" id="var-tag">with-no-auth</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.setup">katello.setup</h2>
+  
+  <a href="katello.setup-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.setup-api.html#katello.setup/new-selenium" id="var-tag">new-selenium</a> </span><span id="var-link"><a href="katello.setup-api.html#katello.setup/switch-new-admin-user" id="var-tag">switch-new-admin-user</a> </span><span id="var-link"><a href="katello.setup-api.html#katello.setup/thread-runner" id="var-tag">thread-runner</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tasks">katello.tasks</h2>
+  
+  <a href="katello.tasks-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tasks-api.html#katello.tasks/chain-envs" id="var-tag">chain-envs</a> </span><span id="var-link"><a href="katello.tasks-api.html#katello.tasks/expecting-error" id="var-tag">expecting-error</a> </span><span id="var-link"><a href="katello.tasks-api.html#katello.tasks/unique-names" id="var-tag">unique-names</a> </span><span id="var-link"><a href="katello.tasks-api.html#katello.tasks/uniqueify" id="var-tag">uniqueify</a> </span><span id="var-link"><a href="katello.tasks-api.html#katello.tasks/with-unique" id="var-tag">with-unique</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.e2e">katello.tests.e2e</h2>
+  
+  <a href="katello.tests.e2e-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.e2e-api.html#katello.tests.e2e/test-client-access" id="var-tag">test-client-access</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.environments">katello.tests.environments</h2>
+  
+  <a href="katello.tests.environments-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.environments-api.html#katello.tests.environments/create-test-org" id="var-tag">create-test-org</a> </span><span id="var-link"><a href="katello.tests.environments-api.html#katello.tests.environments/setup-environment-with-promoted-content" id="var-tag">setup-environment-with-promoted-content</a> </span><span id="var-link"><a href="katello.tests.environments-api.html#katello.tests.environments/verify-create-same-env-in-multiple-orgs" id="var-tag">verify-create-same-env-in-multiple-orgs</a> </span><span id="var-link"><a href="katello.tests.environments-api.html#katello.tests.environments/verify-delete-env-restricted-to-this-org" id="var-tag">verify-delete-env-restricted-to-this-org</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.login">katello.tests.login</h2>
+  
+  <a href="katello.tests.login-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.login-api.html#katello.tests.login/verify-invalid-login-rejected" id="var-tag">verify-invalid-login-rejected</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.navigation">katello.tests.navigation</h2>
+  
+  <a href="katello.tests.navigation-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.navigation-api.html#katello.tests.navigation/verify-navigation" id="var-tag">verify-navigation</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.organizations">katello.tests.organizations</h2>
+  
+  <a href="katello.tests.organizations-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.organizations-api.html#katello.tests.organizations/create-test-org" id="var-tag">create-test-org</a> </span><span id="var-link"><a href="katello.tests.organizations-api.html#katello.tests.organizations/get-all-org-names" id="var-tag">get-all-org-names</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.permissions">katello.tests.permissions</h2>
+  
+  <a href="katello.tests.permissions-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.permissions-api.html#katello.tests.permissions/verify-access" id="var-tag">verify-access</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.promotions">katello.tests.promotions</h2>
+  
+  <a href="katello.tests.promotions-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.promotions-api.html#katello.tests.promotions/create-test-provider-and-envs" id="var-tag">create-test-provider-and-envs</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.providers">katello.tests.providers</h2>
+  
+  <a href="katello.tests.providers-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.providers-api.html#katello.tests.providers/create-same-provider-in-multiple-orgs" id="var-tag">create-same-provider-in-multiple-orgs</a> </span><span id="var-link"><a href="katello.tests.providers-api.html#katello.tests.providers/create-test-provider" id="var-tag">create-test-provider</a> </span><span id="var-link"><a href="katello.tests.providers-api.html#katello.tests.providers/get-all-providers" id="var-tag">get-all-providers</a> </span><span id="var-link"><a href="katello.tests.providers-api.html#katello.tests.providers/validation" id="var-tag">validation</a> </span><span id="var-link"><a href="katello.tests.providers-api.html#katello.tests.providers/verify-provider-renamed" id="var-tag">verify-provider-renamed</a> </span><span id="var-link"><a href="katello.tests.providers-api.html#katello.tests.providers/with-n-new-orgs" id="var-tag">with-n-new-orgs</a> </span><span id="var-link"><a href="katello.tests.providers-api.html#katello.tests.providers/with-two-providers" id="var-tag">with-two-providers</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.search">katello.tests.search</h2>
+  
+  <a href="katello.tests.search-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.tests.search-api.html#katello.tests.search/search-results-valid?" id="var-tag">search-results-valid?</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.suite">katello.tests.suite</h2>
+  
+  <a href="katello.tests.suite-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.sync_management">katello.tests.sync_management</h2>
+  
+  <a href="katello.tests.sync_management-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.systems">katello.tests.systems</h2>
+  
+  <a href="katello.tests.systems-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.templates">katello.tests.templates</h2>
+  
+  <a href="katello.tests.templates-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.tests.users">katello.tests.users</h2>
+  
+  <a href="katello.tests.users-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.ui-tasks">katello.ui-tasks</h2>
+  
+  <a href="katello.ui-tasks-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/activate-in-place" id="var-tag">activate-in-place</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/add-product" id="var-tag">add-product</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/add-repo" id="var-tag">add-repo</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/add-system-system-groups" id="var-tag">add-system-system-groups</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/add-to-changeset" id="var-tag">add-to-changeset</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/add-to-template" id="var-tag">add-to-template</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/assign-role" id="var-tag">assign-role</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/assign-user-default-org-and-env" id="var-tag">assign-user-default-org-and-env</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/check-for-error" id="var-tag">check-for-error</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/check-for-success" id="var-tag">check-for-success</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-activation-key" id="var-tag">create-activation-key</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-changeset" id="var-tag">create-changeset</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-environment" id="var-tag">create-environment</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-environment-path" id="var-tag">create-environment-path</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-organization" id="var-tag">create-organization</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-provider" id="var-tag">create-provider</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-role" id="var-tag">create-role</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-sync-plan" id="var-tag">create-sync-plan</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-system" id="var-tag">create-system</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-system-groups" id="var-tag">create-system-groups</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-template" id="var-tag">create-template</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/create-user" id="var-tag">create-user</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/current-sync-plan" id="var-tag">current-sync-plan</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/current-user" id="var-tag">current-user</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/delete-activation-key" id="var-tag">delete-activation-key</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/delete-environment" id="var-tag">delete-environment</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/delete-organization" id="var-tag">delete-organization</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/delete-product" id="var-tag">delete-product</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/delete-provider" id="var-tag">delete-provider</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/delete-repo" id="var-tag">delete-repo</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/delete-user" id="var-tag">delete-user</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/edit-environment" id="var-tag">edit-environment</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/edit-organization" id="var-tag">edit-organization</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/edit-provider" id="var-tag">edit-provider</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/edit-role" id="var-tag">edit-role</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/edit-sync-plan" id="var-tag">edit-sync-plan</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/edit-system" id="var-tag">edit-system</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/edit-user" id="var-tag">edit-user</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/enable-redhat-repositories" id="var-tag">enable-redhat-repositories</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/ensure-current-user" id="var-tag">ensure-current-user</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/environment-content" id="var-tag">environment-content</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/environment-has-content?" id="var-tag">environment-has-content?</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/environment-other-possible-priors" id="var-tag">environment-other-possible-priors</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/errtype" id="var-tag">errtype</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/fill-ajax-form" id="var-tag">fill-ajax-form</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/in-place-edit" id="var-tag">in-place-edit</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/known-errors" id="var-tag">known-errors</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/logged-in?" id="var-tag">logged-in?</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/logged-out?" id="var-tag">logged-out?</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/login" id="var-tag">login</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/logout" id="var-tag">logout</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/manifest-already-uploaded?" id="var-tag">manifest-already-uploaded?</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/matching-errors" id="var-tag">matching-errors</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/navigate" id="var-tag">navigate</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/notification" id="var-tag">notification</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/promote-changeset" id="var-tag">promote-changeset</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/promote-content" id="var-tag">promote-content</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/remove-gpg-key" id="var-tag">remove-gpg-key</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/remove-package-filter" id="var-tag">remove-package-filter</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/remove-role" id="var-tag">remove-role</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/search" id="var-tag">search</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/subscribe-system" id="var-tag">subscribe-system</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/success?" id="var-tag">success?</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/switch-org" id="var-tag">switch-org</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/sync-complete-status" id="var-tag">sync-complete-status</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/sync-repos" id="var-tag">sync-repos</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/sync-schedule" id="var-tag">sync-schedule</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/sync-success?" id="var-tag">sync-success?</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/upload-subscription-manifest" id="var-tag">upload-subscription-manifest</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/validation-errors" id="var-tag">validation-errors</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/verify-success" id="var-tag">verify-success</a> </span><span id="var-link"><a href="katello.ui-tasks-api.html#katello.ui-tasks/with-org" id="var-tag">with-org</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="katello.validation">katello.validation</h2>
+  
+  <a href="katello.validation-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="katello.validation-api.html#katello.validation/expecting-error-2nd-try" id="var-tag">expecting-error-2nd-try</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="selenium-server">selenium-server</h2>
+  
+  <a href="selenium-server-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <span id="var-link"><a href="selenium-server-api.html#selenium-server/start" id="var-tag">start</a> </span><span id="var-link"><a href="selenium-server-api.html#selenium-server/stop" id="var-tag">stop</a> </span><br />
+  
+</div><div id="namespace-entry">
+  <br />
+  <hr />
+  <h2 id="user">user</h2>
+  
+  <a href="user-api.html" id="api-link">Detailed API documentation</a><br />
+  <pre id="namespace-docstr"></pre>
+  
+  
+  
+  Public variables and functions:
+  <br />
+  
+</div>
+</div>
+              </div>
+            </div>
+          </div>
+	</div>
+	<div id="foot">
+	  <div style="text-align: center;" id="copyright">No copyright info </div>
+	</div>
+      </div>
+      <div id="DesignedBy">Logo &amp; site design by <a title="Visit Tom Hickey's website." href="http://www.tomhickey.com">Tom Hickey</a>.<br />
+      Clojure auto-documentation system by Tom Faulhaber.</div>
+    </div>
+    <!-- /AllContentContainer -->
+  </body>
+
+</html>
