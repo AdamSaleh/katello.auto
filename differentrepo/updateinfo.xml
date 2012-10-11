@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<updates>
+<update from="errata@redhat.com" status="stable" type="bugfix" version="1">
+  <id>RHEA-2012:0013</id>
+  <title>Gorilla_Erratum</title>
+  <release>1</release>
+  <issued date="2012-10-10 14:42:03"/>
+  <description>Gorilla_Erratum</description>
+  <pkglist>
+    <collection short="">
+      <name>1</name>
+      <package arch="" name="gorilla" release="1" src="http://www.fedoraproject.org" version="0.62">
+        <filename>gorilla-0.62-1.noarch.rpm</filename>
+      </package>
+    </collection>
+  </pkglist>
+</update>
+
+<update from="errata@redhat.com" status="stable" type="security" version="1">
+  <id>RHEA-2012:0012</id>
+  <title>Bird_Erratum</title>
+  <release>1</release>
+  <issued date="2012-10-10 14:41:58"/>
+  <description>Bird_Erratum</description>
+  <pkglist>
+    <collection short="">
+      <name>1</name>
+      <package arch="" name="crow" release="1" src="http://www.fedoraproject.org" version="0.8">
+        <filename>crow-0.8-1.noarch.rpm</filename>
+      </package>
+      <package arch="" name="stork" release="2" src="http://www.fedoraproject.org" version="0.12">
+        <filename>stork-0.12-2.noarch.rpm</filename>
+      </package>
+      <package arch="" name="duck" release="1" src="http://www.fedoraproject.org" version="0.6">
+        <filename>duck-0.6-1.noarch.rpm</filename>
+      </package>
+    </collection>
+  </pkglist>
+</update>
+
+<update from="errata@redhat.com" status="stable" type="enhancement" version="1">
+  <id>RHEA-2012:0014</id>
+  <title>Dog_Erratum</title>
+  <release>1</release>
+  <issued date="2012-10-10 15:12:08"/>
+  <description>Dog_Erratum</description>
+  <pkglist>
+    <collection short="">
+      <name>1</name>
+      <package arch="" name="dog" release="1" src="http://www.fedoraproject.org" version="4.23">
+        <filename>dog-4.23-1.noarch.rpm</filename>
+      </package>
+    </collection>
+  </pkglist>
+</update>
+</updates>
