@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <updates>
 <update from="errata@redhat.com" status="stable" type="bugfix" version="1">
-  <id>RHEA-2012:0013</id>
+  <id>RHEA-2012:0003</id>
   <title>Gorilla_Erratum</title>
   <release>1</release>
   <issued date="2012-10-10 14:42:03"/>
