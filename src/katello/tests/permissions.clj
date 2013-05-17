@@ -3,6 +3,7 @@
   (:require [katello :as kt]
             (katello [ui :as ui]
                      [rest :as rest]
+                     [changesets :as changeset]
                      [notifications :as notification]
                      [content-view-definitions :as views]
                      [ui-common :as common]
