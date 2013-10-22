@@ -58,7 +58,7 @@
   (deftest "Compare - Unique: comparison can be viewed across multiple repos"
     ;eavery package needs to be excluded from at least one repo
     (assert/is (every? #(some false? %) (vals
-    (compare-repositories ["CompareZoo1" "CompareZoo2" "ManyRepositoryB" "ManyRepositoryC" "ManyRepositoryD" "ManyRepositoryE"] :type :packages :view :unique)))
+    (compare-repositories ["CompareZoo1" "CompareZoo2" "ManyRepositoryB" "ManyRepositoryC" "ManyRepositoryD" "ManyRepositoryE"] :type :packages :view :unique)))))
 
   (deftest "Repo compare: Differences between repos can be qualified"
     :uuid "597698ba-2b7c-8274-e523-bf3c3a85124c"
