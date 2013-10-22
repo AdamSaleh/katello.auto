@@ -468,7 +468,7 @@
                         :published-name (:published-name cv)
                         :description "test pub"
                         :org org})]
-                         (rest/poll-task-untill-completed (publish-task :uuid) 1000 10)
+                         (rest/poll-task-untill-completed (publish-task :uuid) 1000 60)
                          (promote-cv-to-env cv target-env)                    
              cv)))                          
         

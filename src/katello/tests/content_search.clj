@@ -20,6 +20,7 @@
 (declare test-org)
 (declare test-org-compare)
 (declare test-org-errata)
+(declare test-org-env)
 
 (defn names-by-type [data-type cs-results]
   (->> cs-results
@@ -54,6 +55,11 @@
                  (fake/prepare-org-custom-provider test-org-compare fake/custom-providers)
                  (rest/create (kt/newEnvironment {:name (uniqueify "simple-env") :org test-org-compare :prior "Library"})))
   
+  (deftest "Compare - Unique: comparison can be viewed across multiple repos"
+    ;eavery package needs to be excluded from at least one repo
+    (assert/is (every? #(some false? %) (vals
+    (compare-repositories ["CompareZoo1" "CompareZoo2" "ManyRepositoryB" "ManyRepositoryC" "ManyRepositoryD" "ManyRepositoryE"] :type :packages :view :unique)))
+
   (deftest "Repo compare: Differences between repos can be qualified"
     :uuid "597698ba-2b7c-8274-e523-bf3c3a85124c"
     :data-driven true
@@ -354,9 +360,7 @@ different name and data."
             ["severity:ttt" #{}]
             ["severity:" #{}]]}))
 
-(declare test-org-env)
-(declare publish-dev)
-(declare publish-qa)
+
 
 (def env-dev "Development")
 (def env-qa "QA")
